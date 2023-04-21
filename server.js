@@ -11,7 +11,7 @@ const port = process.env.PORT || 7000;
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
   cors: {
-    origin: "https://facedook-lilac.vercel.app",
+    origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-type"],
   },
