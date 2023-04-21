@@ -16,6 +16,7 @@ const io = require("socket.io")(http, {
     allowedHeaders: ["Content-type"],
   },
 });
+console.log(process.env.CLIENT_URL);
 
 mongoose
   .connect(process.env.DATABASE, {
