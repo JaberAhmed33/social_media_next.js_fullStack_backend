@@ -11,7 +11,7 @@ const port = process.env.PORT || 7000;
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, {
   cors: {
-    origin: process.env.CLIENT_URL,
+//     origin: process.env.CLIENT_URL,
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-type"],
   },
@@ -32,11 +32,11 @@ mongoose
 
 app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: [process.env.CLIENT_URL],
-  })
-);
+// app.use(
+//   cors({
+//     origin: [process.env.CLIENT_URL],
+//   })
+// );
 
 readdirSync("./routes").map((route) => {
   console.log(route);
