@@ -33,7 +33,7 @@ export const createMessage = async (req, res) => {
 export const allMessages = async (req, res) => {
   try {
     const messages = await Chat.find()
-    .populate("sendBy", "_id name image")
+    .populate("sendBy", "_id name image username")
 
     res.json(messages);
   } catch (err) {
