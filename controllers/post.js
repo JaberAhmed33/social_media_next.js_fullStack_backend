@@ -111,8 +111,8 @@ export const newsFeed = async (req, res) => {
 
     const posts = await Post.find({ postedBy: { $in: following } })
       .skip((currentPage - 1 ) * perPage)
-      .populate("postedBy", "_id name image")
-      .populate("comments.postedBy", "_id name image")
+      .populate("postedBy", "_id name image username")
+      .populate("comments.postedBy", "_id name image username")
       .sort({ createdAt: -1 })
       .limit(perPage);
 
@@ -204,8 +204,8 @@ export const totalPosts = async (req, res) => {
 export const posts = async (req, res) => {
   try {
     const posts = await Post.find()
-    .populate("postedBy", "_id name image")
-    .populate("comments.postedBy", "_id name image")
+    .populate("postedBy", "_id name image username")
+    .populate("comments.postedBy", "_id name image username")
     .sort({createdAt: -1})
     .limit(12);
 
